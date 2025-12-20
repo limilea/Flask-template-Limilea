@@ -1,6 +1,6 @@
-from flask import Flask,render_template
+from flask import Flask, render_template
 
-app = Flask(__name__) 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -9,30 +9,37 @@ def index():
 
 @app.route('/about')
 def about():
-    title ='About Page'
+    title = 'About Page'
     name = 'Limilea'
     email = 'std.67122420216@ubru.ac.th'
     mobile = '0943466071'
     age = 20
     return render_template('about.html',
-                           title=title,
                             name=name,
-                           email=email,
-                           mobile=mobile, 
-                           age=age)
-@app.route('/favorite/foods')
-def favorite_foods(): 
-    title = 'Favorite Foods Page'
-    foods = ['ข้าวมันไก่','ไก่ทอด' ,'หมูปิ้ง']
-    return render_template('favorite_foods.html',
-                    title=title,
-                    foods=foods)
+                            email=email,
+                            mobile=mobile,
+                            age=age)
 
+@app.route('/favorite/foods')
+def favorite_foods():
+    title = 'Favorite Foods'
+    foods = ['ตำป่า', 'ข้าวมันไก่', 'ไก่ทอด', 'ข้าวผัด', 'ส้มตำไก่อย่าง']
+    return render_template('favorite_foods.html',
+                            foods=foods)
 
 @app.route('/favorite/spots')
 def favorite_spots():
-    title = 'favorite Spots Page'
-    spots = ['ฟุตบอล' ,'แบคมินตั้น' ,'ปิงปอง']
+    title = 'Favorite Spots'
+    spots = ['ปิงปอง', 'ฟุตบอล', 'บาสเก็ตบอล']
     return render_template('favorite_spots.html',
-                           title=title,
-                           spots=spots)
+                            spots=spots)
+
+@app.route('/favorite/movies')
+def favorite_movies():      
+    title = 'Favorite Movies'
+    movies = ['the witcher', 'fast and furious', 'transformers', 'john wick', 'spider-man']
+    return render_template('favorite_movies.html',  
+                            movies=movies)  
+
+if __name__ == "__main__":
+    app.run(debug=True)

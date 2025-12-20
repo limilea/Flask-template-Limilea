@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Template </title>
-</head>
-<body>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Favorite Foods</a>
-    <a href="#">Favorite Spots</a>
-    <h1>{{title}}</h1>
-    <hr>
-    <h2>My name is {{ name }}</h2>
-    <h2>My email address is {{ email }}</h2>
-    <h2>My mobile phone number is {{ mobile }}</h2>
+{% extends 'layout.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <h2>my name is {{ name }}</h2>
+    <h2>my email address is {{ email }}</h2>
+    <h2>my mobile phone number is {{ mobile }}</h2>
+    <h2>my age is {{ age }}</h2>
     {% if age >= 50 %}
-    <h2>Older</h2>
+        <h2>Older</h2>
     {% else %}
-      <h2>Younger</h2>
+        <h2>Younger</h2>
     {% endif %}
-</body>
-</html>
+    <hr>
+{% endblock %}
